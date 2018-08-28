@@ -48,8 +48,8 @@ class Pygments(Directive):
             lexer = TextLexer()
 
         # Fetch the defaults
-        if pys.PYGMENTS_RST_OPTIONS is not None:
-            for k, v in six.iteritems(pys.PYGMENTS_RST_OPTIONS):
+        if pys.CONFIG.get('PYGMENTS_RST_OPTIONS') is not None:
+            for k, v in six.iteritems(pys.CONFIG['PYGMENTS_RST_OPTIONS']):
                 # Locally set options overrides the defaults
                 if k not in self.options:
                     self.options[k] = v

@@ -159,7 +159,6 @@ DEFAULT_CONFIG = {
     'BIND': '',
 }
 
-PYGMENTS_RST_OPTIONS = None
 CONFIG = None
 
 
@@ -214,10 +213,8 @@ def read_settings(path=None, override=None):
     parsed_settings = configure_settings(local_settings)
     # This is because there doesn't seem to be a way to pass extra
     # parameters to docutils directive handlers, so we have to have a
-    # variable here that we'll import from within Pygments.run (see
-    # rstdirectives.py) to see what the user defaults were.
-    global PYGMENTS_RST_OPTIONS
-    PYGMENTS_RST_OPTIONS = parsed_settings.get('PYGMENTS_RST_OPTIONS', None)
+    # variable here that we can import from within custom rst directives (like
+    # Pygments.run; see rstdirectives.py) to see what the user defaults were.
     global CONFIG
     CONFIG = parsed_settings
     return parsed_settings
