@@ -160,6 +160,7 @@ DEFAULT_CONFIG = {
 }
 
 PYGMENTS_RST_OPTIONS = None
+CONFIG = None
 
 
 def read_settings(path=None, override=None):
@@ -217,6 +218,8 @@ def read_settings(path=None, override=None):
     # rstdirectives.py) to see what the user defaults were.
     global PYGMENTS_RST_OPTIONS
     PYGMENTS_RST_OPTIONS = parsed_settings.get('PYGMENTS_RST_OPTIONS', None)
+    global CONFIG
+    CONFIG = parsed_settings
     return parsed_settings
 
 
